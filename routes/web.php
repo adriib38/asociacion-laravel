@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\MemberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +19,6 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-Route::get('/eventos', function () {
-
-    return view('eventos');
-});
-
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -34,7 +29,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::resource('eventos', EventController::class)
+Route::resource('events', EventController::class)
 ->parameters(['events' => 'event'])
 ->names([
     'index' => 'events.lista',
@@ -44,4 +39,12 @@ Route::resource('eventos', EventController::class)
     'store' => 'events.store',
 ])->except(['update', 'destroy']);
 
-
+Route::resource('members', MemberController::class)
+->parameters(['members' => 'member'])
+->names([
+    'index' => 'members.lista',
+    'create' => 'members.crear',
+    'show' => 'members.show',
+    'edit' => 'members.editar',
+    'store' => 'members.store',
+])->except(['update', 'destroy']);

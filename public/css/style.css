@@ -4,6 +4,7 @@ body {
     background: linear-gradient(0deg, rgba(224,157,4,1) 0%, rgba(191,206,65,1) 72%); 
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
 }
 
 nav {
@@ -23,11 +24,11 @@ nav a {
     padding: 10px;
     margin-right: 0px;
     margin-left: 0;
+    text-decoration: none;
 }
 
 a {
     color: inherit;
-    text-decoration: none;
 }
 
 footer {

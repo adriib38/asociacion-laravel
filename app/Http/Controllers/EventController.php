@@ -14,7 +14,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::where('visible', 1)->get();
         return view('eventos.eventos', compact('events'));
     }
 
@@ -67,7 +67,9 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        $event = Event::where('id', $event->id)->first();
+
+        return view('eventos.show', compact('event'));
     }
 
     /**
